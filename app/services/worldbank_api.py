@@ -28,3 +28,22 @@ def get_population_data():
         de_values = [item['value'] for item in de_data if item['value'] is not None]
         return years, us_values, de_values
     return [], [], []
+
+def get_interesting_numbers():
+    indicators = {
+        'GDP Growth (%)': 'NY.GDP.MKTP.KD.ZG',
+        'Life Expectancy': 'SP.DYN.LE00.IN',
+        'Unemployment Rate (%)': 'SL.UEM.TOTL.ZS',
+        'Internet Users (%)': 'IT.NET.USER.ZS'
+    }
+    interesting_numbers = {}
+    for name, indicator in indicators.items():
+        us_data = fetch_worldbank_data(indicator, 'US', 2021, 2021)
+        de_data = fetch_worldbank_data(indicator, 'DE', 2021, 2021)
+        print(f"Indicator: {name}, US Data: {us_data}, DE Data: {de_data}")  # Debugging print
+        interesting_numbers[name] = {
+            'US': round(us_data[0]['value'], 2) if us_data and us_data[0]['value'] is not None else 'N/A',
+            'DE': round(de_data[0]['value'], 2) if de_data and de_data[0]['value'] is not None else 'N/A'
+        }
+    print(f"Interesting Numbers: {interesting_numbers}")  # Debugging print
+    return interesting_numbers

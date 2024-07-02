@@ -1,6 +1,20 @@
 {% extends "layout.html" %}
 {% block content %}
 <h1>Dashboard</h1>
+<div class="row mb-4">
+    {% set colors = ['rgba(0, 123, 255, 0.7)', 'rgba(40, 167, 69, 0.7)', 'rgba(255, 193, 7, 0.7)', 'rgba(220, 53, 69, 0.7)'] %}
+    {% for index, (name, values) in enumerated_numbers %}
+    <div class="col-md-3">
+        <div class="card text-white mb-3" style="background-color: {{ colors[index % colors|length] }};">
+            <div class="card-body">
+                <h5 class="card-title">{{ name }}</h5>
+                <p class="card-text">US: {{ values['US'] }}</p>
+                <p class="card-text">Germany: {{ values['DE'] }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 <div class="row">
     <div class="col-md-6">
         <canvas id="gdpChart"></canvas>

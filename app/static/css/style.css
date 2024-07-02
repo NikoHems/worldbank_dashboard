@@ -1,0 +1,9 @@
+body {
+    padding-top: 56px;
+}
+.card {
+    margin-bottom: 20px;
+}
+#chart1, #chart2, #chart3, #chart4 {
+    height: 400px;
+}

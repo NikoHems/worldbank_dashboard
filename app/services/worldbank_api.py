@@ -33,7 +33,7 @@ def get_interesting_numbers():
     indicators = {
         'GDP Growth (%)': 'NY.GDP.MKTP.KD.ZG',
         'Life Expectancy': 'SP.DYN.LE00.IN',
-        'Unemployment Rate (%)': 'SL.UEM.TOTL.ZS',
+        'Unemployment (%)': 'SL.UEM.TOTL.ZS',
         'Internet Users (%)': 'IT.NET.USER.ZS'
     }
     interesting_numbers = {}
